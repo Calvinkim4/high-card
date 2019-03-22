@@ -113,4 +113,14 @@ function playGame() {
 
 
 buildDeck();
-playGame();
+// playGame();
+
+document.getElementById('startbutton').addEventListener('click', playGame);
+
+
+
+
+
+
+
+
