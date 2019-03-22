@@ -1,0 +1,12 @@
+body {
+	text-align: center;
+	margin: 50px;
+}
+
+#startbutton {
+	background: rgba(255, 0, 0);
+	border-radius: 10px;
+	font-size: 80px;
+	padding: 10px 30px;
+	font-family: VT323;
+}
