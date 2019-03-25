@@ -1,12 +1,78 @@
 body {
+	background: rgb(36, 130, 70);
 	text-align: center;
 	margin: 50px;
 }
 
-#startbutton {
-	background: rgba(255, 0, 0);
+h1 {
+	font-size: 150px;
+	font-family: VT323;
+	font-weight: normal;
+}
+
+h2 {
+	font-size: 100px;
+	font-family:  VT323;
+	font-weight: normal;
+}
+
+h4 {
+	font-size: 35px;
+	font-family: VT323;
+	font-weight: normal;
+}
+
+.player1 {
+	float: left;
+	margin-left: 0 50px;
+	display: block;
+}
+
+.player2 {
+	float: right;
+	margin-right: 0 50px;
+	display: block;
+}
+
+.colorblack {
+	color: black;
+}
+
+
+#dealbutton {
+	background: rgba(255, 0, 0, 1);
 	border-radius: 10px;
+	border-width: 5px;
+	border-color: black;
 	font-size: 80px;
 	padding: 10px 30px;
 	font-family: VT323;
+	margin: 250px;
+}
+
+h3 {
+	font-size: 40px;
+	font-family: VT323;
+	font-weight: normal;
+	color: rgb(255, 215, 0);
+}
+
+#startbutton {
+	background: rgba(255, 0, 0, 1);
+	border-radius: 10px;
+	border-width: 5px;
+	border-color: black;
+	font-size: 80px;
+	padding: 10px 30px;
+	font-family: VT323;
+	margin: 50px;
+}
+
+#startbutton:active {
+	background: black;
+	color: rgba(255, 0, 0, 1);;
+}
+
+#gamewrapper {
+	display: none;
 }

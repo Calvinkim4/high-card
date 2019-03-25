@@ -28,7 +28,7 @@ const buildDeck = () => {
 			switch (j) {
 				case 0:
 				suit = "SPADES";
-				suitValue = 4
+				suitValue = 4;
 				break;
 				case 1:
 				suit = "HEARTS";
@@ -56,23 +56,30 @@ const buildDeck = () => {
 
 let player1Card, player2Card;
 const dealCardsToPlayers = () => {
-	player1Card = deck[Math.floor(Math.random() * deck.length)];
-	deck.splice(player1Card, 1);
-	player2Card = deck[Math.floor(Math.random() * deck.length)];
-	deck.splice(player2Card, 1);
+	let randomPick1 = Math.floor(Math.random() * deck.length);
+	//console.log(randomPick1);
+	player1Card = deck[randomPick1];
+	deck.splice(randomPick1, 1);
+	let randomPick2 = Math.floor(Math.random() * deck.length);
+	//console.log(randomPick2);
+	player2Card = deck[randomPick2];
+	deck.splice(randomPick2, 1);
 }
 
 //dealCardsToPlayer();
 //console.log(deck.length);
 
 const announceCards = () => {
-	console.log("Player 1 is showing the " + player1Card.value + " of " + player1Card.suit);
-	console.log("Player 2 is showing the " + player2Card.value + " of " + player2Card.suit
-		);
+	document.getElementById('player1card').innerHTML = player1Card.value + " of " + player1Card.suit;
+	document.getElementById('player2card').innerHTML = player2Card.value + " of " + player2Card.suit;
+	//console.log("Player 1 is showing the " + player1Card.value + " of " + player1Card.suit);
+	//console.log("Player 2 is showing the " + player2Card.value + " of " + player2Card.suit);
 }
 
 //announceCards();
 
+let player1wins = 0;
+let player2wins = 0;
 //combined cardToRank function and announceWinner function
 const cardToRank = () => {
 	let player1CardValue = player1Card.faceValue;
@@ -80,16 +87,28 @@ const cardToRank = () => {
 	let player1CardSuitValue = player1Card.suitValue;
 	let player2CardSuitValue = player2Card.suitValue;
 	
-	
+	// winner is given a golden
 	if (player1CardValue > player2CardValue) {
-		console.log("Player 1 wins");
+		document.getElementById('player1title').style.color = 'rgb(255, 215, 0)';
+		document.getElementById('player2title').style.color = 'black';
+		player1wins++;
+		document.getElementById('player1wins').innerHTML = player1wins;
 	} else if (player1CardValue < player2CardValue) {
-		console.log("Player 2 wins!");
+		document.getElementById('player1title').style.color = 'black';
+		document.getElementById('player2title').style.color = 'rgb(255, 215, 0)';
+		player2wins++;
+		document.getElementById('player2wins').innerHTML = player2wins;
 	} else if (player1CardValue == player2CardValue) {
 		if (player1CardSuitValue > player2CardSuitValue) {
-			console.log("Player 1 wins!");
+			document.getElementById('player1title').style.color = 'rgb(255, 215, 0)';
+			document.getElementById('player2title').style.color = 'black';
+			player1wins++;
+			document.getElementById('player1wins').innerHTML = player1wins;
 		} else {
-			console.log("Player 2 wins!");
+			document.getElementById('player1title').style.color = 'black';
+			document.getElementById('player2title').style.color = 'rgb(255, 215, 0)';
+			player2wins++;
+			document.getElementById('player2wins').innerHTML = player2wins;
 		}
 	}
 }
@@ -104,6 +123,11 @@ const returnCardsToDeck = () => {
 //returnCardsToDeck();
 //console.log(deck.length);
 
+function changeToPlayScreen() {
+	document.getElementById('divwrapper').style.display = 'none';
+ 	document.getElementById('gamewrapper').style.display = 'block';
+}
+
 function playGame() {
   dealCardsToPlayers();
   announceCards();
@@ -115,7 +139,21 @@ function playGame() {
 buildDeck();
 // playGame();
 
-document.getElementById('startbutton').addEventListener('click', playGame);
+document.getElementById('startbutton').addEventListener('click', changeToPlayScreen);
+
+let changeColorTime = 0;
+const changeTitleColor = () => {
+	if(changeColorTime % 2 === 0) {
+		document.getElementById('gametitle').style.color = 'rgb(255, 215, 0)';
+	} else {
+		document.getElementById('gametitle').style.color = 'black';
+	}
+	changeColorTime++;
+}
+
+setInterval(changeTitleColor, 500);
+
+document.getElementById('dealbutton').addEventListener('click', playGame);
 
 
 

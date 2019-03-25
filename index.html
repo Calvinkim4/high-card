@@ -6,7 +6,24 @@
 	<title>Card Game</title>
 </head>
 <body>
-	<button id="startbutton">PLAY</button>
+	<div id="divwrapper">
+		<h1 id="gametitle">HIGH CARD WINS!</h1>
+		<h3>HOW TO PLAY: WHOEVER DRAWS THE HIGHEST CARD WINS!</h3>
+		<button id="startbutton">PLAY</button>
+	</div>
+	<div id="gamewrapper">
+		<div class="player1">
+			<h2 id="player1title">PLAYER 1</h2>
+			<h3 id="player1card" class="colorblack"></h3>
+			<h4 class="colorblack">WINS <span id="player1wins"></span></h4>
+		</div>
+		<div class="player2">
+			<h2 id="player2title">PLAYER 2</h2>
+			<h3 id="player2card" class="colorblack"></h3>
+			<h4 class="colorblack">WINS <span id="player2wins"></span></h4>
+		</div>
+		<button id= "dealbutton">DEAL</button>
+	</div>
 	<script src="main.js"></script>
 </body>
 </html>
