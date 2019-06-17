@@ -87,7 +87,7 @@ const cardToRank = () => {
 	let player1CardSuitValue = player1Card.suitValue;
 	let player2CardSuitValue = player2Card.suitValue;
 	
-	// winner is given a golden
+	// winner is given a gold color
 	if (player1CardValue > player2CardValue) {
 		document.getElementById('player1title').style.color = 'rgb(255, 215, 0)';
 		document.getElementById('player2title').style.color = 'black';
